@@ -19,5 +19,9 @@ public class TestController {
         return dubboBean.demoService.getIntroductions();
     }
 
+    @GetMapping("user/list")
+    public Object getUserList(){
+        return dubboBean.demoService.getUserList();
+    }
 
 }

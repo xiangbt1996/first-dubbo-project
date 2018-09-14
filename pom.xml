@@ -7,6 +7,9 @@
     <groupId>com.xiang</groupId>
     <artifactId>dubboDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>xiang-dubbo</name>
+    <description>我的第一个dubbo项目</description>
     <modules>
         <module>dubbo-api</module>
         <module>dubbo-consumer</module>
@@ -63,12 +66,6 @@
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
             <version>1.0.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
         </dependency>
 
         <dependency>

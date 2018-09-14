@@ -1,7 +1,9 @@
-package com.xiang.provider.service;
+package com.xiang.provider.service.dubbo;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.xiang.api.bean.UserVO;
 import com.xiang.api.service.DemoService;
+import com.xiang.provider.service.UserService;
 import com.xiang.provider.service.common.RedisService;
 import com.xiang.provider.service.mq.MqProducer;
 import org.slf4j.Logger;
@@ -26,6 +28,8 @@ public class DemoServiceImpl implements DemoService {
     private MqProducer mqProducer;
     @Autowired
     private RedisService redisService;
+    @Autowired
+    private UserService userService;
     @Override
     public String getIntroductions(){
         mqProducer.sendMyFirstMq("DemoServiceImpl发送第一个mq消息");
@@ -44,5 +48,10 @@ public class DemoServiceImpl implements DemoService {
         }
         logger.info("12345");
         return value;
+    }
+
+    @Override
+    public List<UserVO> getUserList() {
+        return userService.getUserList();
     }
 }

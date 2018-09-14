@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ImportResource;
 
 import java.io.IOException;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+@SpringBootApplication
 public class ProviderApplication {
 
 	public static void main(String[] args) {

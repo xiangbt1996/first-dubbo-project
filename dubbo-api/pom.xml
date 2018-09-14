@@ -14,6 +14,12 @@
 
 	<name>api</name>
 	<description>dubbo接口服务</description>
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+	</dependencies>
 	<build>
 		<resources>
 			<resource>
