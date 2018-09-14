@@ -2,8 +2,13 @@ package com.xiang.provider.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.xiang.api.service.DemoService;
+import com.xiang.provider.service.common.RedisService;
 import com.xiang.provider.service.mq.MqProducer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +20,29 @@ import java.util.List;
         registry = "${dubbo.registry.id}"
 )
 public class DemoServiceImpl implements DemoService {
+    private Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
     @Autowired
     private MqProducer mqProducer;
+    @Autowired
+    private RedisService redisService;
     @Override
-    public String getIntroductions() {
+    public String getIntroductions(){
         mqProducer.sendMyFirstMq("DemoServiceImpl发送第一个mq消息");
-        return "xiang的第一个dubbo项目✌️";
+        Jedis jedis = null;
+        String value = null;
+        try{
+            jedis =  redisService.getJedisPool().getResource();
+            value = jedis.get("hello");
+        }catch (Exception e){
+            value = e.getMessage();
+            logger.error(e.getMessage(),e);
+        }finally {
+            if(jedis != null){
+                jedis.close();
+            }
+        }
+        logger.info("12345");
+        return value;
     }
 }
