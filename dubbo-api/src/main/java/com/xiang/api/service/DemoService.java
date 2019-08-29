@@ -1,4 +1,4 @@
-package com.xiang.api.service.dubbo;
+package com.xiang.api.service;
 
 
 import com.xiang.api.bean.UserVO;

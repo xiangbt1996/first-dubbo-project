@@ -1,7 +1,7 @@
 package com.xiang.consumer.service.dubbo;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.xiang.api.service.dubbo.DemoService;
+import com.xiang.api.service.DemoService;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
