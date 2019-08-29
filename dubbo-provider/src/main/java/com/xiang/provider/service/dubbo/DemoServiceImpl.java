@@ -2,7 +2,7 @@ package com.xiang.provider.service.dubbo;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.xiang.api.bean.UserVO;
-import com.xiang.api.service.DemoService;
+import com.xiang.api.service.dubbo.DemoService;
 import com.xiang.provider.service.UserService;
 import com.xiang.provider.service.common.RedisService;
 import com.xiang.provider.service.mq.MqProducer;
@@ -10,9 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service(
