@@ -7,4 +7,3 @@
 * redis
 * activeMq
 * dubbo
-2
